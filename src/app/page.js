@@ -1,47 +1,15 @@
 'use client'
 import Link from "next/link";
-import styles from "./page.module.css";
-import { useRouter } from "next/navigation";
-
-
-
-// 👉 Variable cannot be rerendered, but 'state' can rerendered (when state change)...
 
 export default function Home() {
-  const router = useRouter();
-  const apple = (item) => {
-    alert(item)
-  }
-
-  const InnerComponent=() => {
-    return (
-      <h1>Inner Component</h1>
-    )
-  }
 
   return ( 
-    <div className={styles.page} >
-      <main className={styles.main} >
-        <h1>Events, fucntion and state</h1>
-        {/* <button onClick={() => apple("color")}>Click me</button> */}
+      <main >
 
-        {/* <InnerComponent />
-        {InnerComponent()}                👉 It also work as same as upper component */}
-
-
-        <Link href="/login">Go to Login page</Link>
-        <br /><br />
-        
-        <Link href="/about">Go to About page</Link>
-        <br /><br />
-        
-        <button onClick={()=> router.push("/login")}>Go to Login page</button>
-        <br /><br />
-        
-        <button onClick={()=> router.push("/about")}>Go to About page</button>
+        <h1> Fetch Data with API in Client Component </h1>
+        <Link href="/productlist">Go to Product List</Link>
 
       </main>  
-    </div>
   );
 }
 
