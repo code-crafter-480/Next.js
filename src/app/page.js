@@ -1,16 +1,20 @@
-'use client'
-import { useState } from 'react';
-import style from './style.module.css'
+import Image from "next/image";
+import Profile from '../../public/next.svg'
 
 export default function Home() {
-  const [color, setColor] = useState("red")
+  console.log(Profile)
   return ( 
       <main >
+        
+        <h1>Image Optimazation in Next</h1>
+        {/* 
+        <Image src={Profile} />             {/* Inside this 'Image', Nextjs already put predefined some things whick make it more optimized  
+        <img src={Profile.src} />             This is not optimized */}
 
-        <h1 className={color == 'red' ? style.red : style.green}> Condition with style </h1>
-        <h2 style={{backgroundColor:color == 'red' ? 'red' : 'green' }}>Heading 2</h2>
-        <h3 id={style.orange}>Heading 3</h3>
-        <button onClick={()=> setColor('green')}>Update color</button>
+        {/* 👉 Ata use korle amader 'height' 'width' and 'hostname' define korte hobe, 'hostname' set korte 'next.config.mjs' a setup korte hobe... */}
+        <Image src="https://media.istockphoto.com/id/1370871192/photo/happy-woman-shows-blank-smartphone-screen-against-blue-background.jpg?s=612x612&w=0&k=20&c=ICucU4i1_xfW8kx2JFGD7LmEsepyNbIA-zab9B4CRtM=" width={200} height={200} />
+
+
       </main>  
   );
 }
