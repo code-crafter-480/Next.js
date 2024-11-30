@@ -1,27 +1,20 @@
-"use client"
-import {useEffect, useState} from 'react'
 
-export default function Page () {
+async function productlist() {
+    let data = await fetch("https://dummyjson.com/products")
+    data = await data.json()
+    return data.products
+}
 
-    const [product, setProduct] = useState([])
-
-    useEffect( () => {
-        async function fetchData() {
-            let data = await fetch("https://dummyjson.com/products")
-            data = await data.json()
-            console.log(data)
-            setProduct(data.products)
-          }
-          fetchData();
-    }, [])
-
+export default async function Page () {
+    let products = await productlist()
+    console.log(products)
     return (
         <div>
-            <h1>Product List</h1>
+            <h1>Product List </h1>
             {
-                product.map((item, index) => (
+                products.map((item, index) => (
                     <div key={index}>
-                        <h3>Name:{item.title}, Price: {item.price} </h3>
+                        <h3>Name: {item.title}</h3>
                     </div>
                 ))
             }
